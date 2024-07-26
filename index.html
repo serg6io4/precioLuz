@@ -5,6 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrecioLuz</title>
     <link rel="stylesheet" href="index.css">
+    <script src="main.js"></script>
+    <style>
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .nav-tabs a.active {
+            font-weight: bold;
+            color: rgb(250, 250, 250); 
+        }
+        .price-visualizer {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .selector-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .chart-placeholder {
+            width: 400px;
+            height: 300px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #999;
+        }
+        .price-info div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -12,10 +51,10 @@
             <h1>PrecioLuz</h1>
         </div>
         <div class="nav-tabs">
-            <a href="#about" class="active" onclick="setActiveTab(this)">Sobre la página</a>
-            <a href="#prices" onclick="setActiveTab(this)">Visualizador de precios</a>
+            <a href="#about" class="active" onclick="setActiveTab(event, 'about')">Sobre la página</a>
+            <a href="#prices" onclick="setActiveTab(event, 'prices')">Visualizador de precios</a>
         </div>
-        <div id="about" class="section">
+        <div id="about" class="section active">
             <h2>Sobre la página</h2>
             <div class="about-page">
                 <div class="image-placeholder"></div>
@@ -28,13 +67,14 @@
         </div>
         <div id="prices" class="section">
             <h2>Visualizador de precios</h2>
-            <div class="price-visualizer">
-                <label for="region">Seleccione región:</label>
-                <select id="region">
-                    <option value="PCB">PCB</option>
-                    <option value="CYM">CYM</option>
-                    
-                </select>
+            <p>Seleccione región: <select name="selectZone" id="selectZone">
+                <option value="PCB">PCB</option>
+                <option value="CYM">CYM</option>
+            </select></p>
+            <div class="visualizer">
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
                 <div class="price-info">
                     <div>
                         <p>Precio medio:</p>
@@ -49,29 +89,30 @@
                         <p id="tramo-caro">--</p>
                     </div>
                 </div>
-                <h3>Tramos más económicos</h3>
-                <div>
-                    <p>Primer tramo</p>
-                    <p>Precio: --</p>
-                </div>
-                <div>
-                    <p>Segundo tramo</p>
-                    <p>Precio: --</p>
-                </div>
-                <div>
-                    <p>Tercer tramo</p>
-                    <p>Precio: --</p>
-                </div>
             </div>
         </div>
     </div>
     <script>
-        function setActiveTab(element) {
+        function setActiveTab(event, sectionId) {
+            event.preventDefault();
             document.querySelectorAll('.nav-tabs a').forEach(tab => {
                 tab.classList.remove('active');
             });
-            element.classList.add('active');
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            document.getElementById(sectionId).classList.add('active');
         }
+
+        document.getElementById('selectZone').addEventListener('change', (event) => {
+            const selectedValue = event.target.value;
+            //actualizarPrecioLuz(selectedValue);
+            document.getElementById("precio-medio").value = getPrecioMedio(selectedValue);
+            document.getElementById("tramo-barato").value = getPrecioMin(selectedValue);
+            document.getElementById("tramo-caro").value = getPrecioMax(selectedValue);
+        });
+        
     </script>
 </body>
 </html>

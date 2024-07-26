@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a2b3c;
-    color: #ffffff;
+    background-color:#0c2b50;
+    color: #1a5c8e;
 }
 .container {
     width: 100%;
@@ -17,7 +17,7 @@ body {
 }
 .nav-tabs {
     display: flex;
-    border-bottom: 2px solid #5c819a;
+    border-bottom: 2px solid #1a5c8e;
 }
 .nav-tabs a {
     padding: 10px 20px;
@@ -26,12 +26,12 @@ body {
     color: inherit;
 }
 .nav-tabs .active {
-    background-color: #2e4053;
-    border-bottom: 2px solid #ffffff;
+    background-color: #0c2b50;
+    border-bottom: 2px solid #1a5c8e;
 }
 .section {
     padding: 20px;
-    background-color: #278dc1;
+    background-color: #66b5ff;
     margin-top: 20px;
     border-radius: 5px;
 }
@@ -45,7 +45,7 @@ body {
 .image-placeholder {
     width: 100px;
     height: 100px;
-    background-color: #ccc;
+    background-color: #1a5c8e;
     margin-right: 20px;
 }
 .price-visualizer {
@@ -53,11 +53,14 @@ body {
     flex-direction: column;
 }
 .price-visualizer select {
+    width: 70px;
+    display: flex;
     padding: 10px;
     margin-bottom: 20px;
 }
 .price-info {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 .price-info div {

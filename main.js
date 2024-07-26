@@ -131,5 +131,3 @@ async function getPreciosBajos(zona, numero) {
         console.error('Error fetching data:', error);
     }
 }
-
-getPreciosBajos('PCB', 2);
