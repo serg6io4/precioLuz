@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrecioLuz</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PrecioLuz</h1>
+        </div>
+        <div class="nav-tabs">
+            <a href="#about" class="active" onclick="setActiveTab(this)">Sobre la página</a>
+            <a href="#prices" onclick="setActiveTab(this)">Visualizador de precios</a>
+        </div>
+        <div id="about" class="section">
+            <h2>Sobre la página</h2>
+            <div class="about-page">
+                <div class="image-placeholder"></div>
+                <div>
+                    <p>Esta página surge como una manera de conocer el precio diario de la luz en España. Toda esta información es extraída de la siguiente url: .</p>
+                    <p>Por otro lado este proyecto consume esta información a través de la API que proporciona esta página.</p>
+                    <p>La página ha sido realizada totalmente en Vanilla, esto quiere decir que no hay frameworks ni nada, es totalmente nativa de los lenguajes.</p>
+                </div>
+            </div>
+        </div>
+        <div id="prices" class="section">
+            <h2>Visualizador de precios</h2>
+            <div class="price-visualizer">
+                <label for="region">Seleccione región:</label>
+                <select id="region">
+                    <option value="PCB">PCB</option>
+                    <option value="CYM">CYM</option>
+                    
+                </select>
+                <div class="price-info">
+                    <div>
+                        <p>Precio medio:</p>
+                        <p id="precio-medio">--</p>
+                    </div>
+                    <div>
+                        <p>Tramo más barato:</p>
+                        <p id="tramo-barato">--</p>
+                    </div>
+                    <div>
+                        <p>Tramo más caro:</p>
+                        <p id="tramo-caro">--</p>
+                    </div>
+                </div>
+                <h3>Tramos más económicos</h3>
+                <div>
+                    <p>Primer tramo</p>
+                    <p>Precio: --</p>
+                </div>
+                <div>
+                    <p>Segundo tramo</p>
+                    <p>Precio: --</p>
+                </div>
+                <div>
+                    <p>Tercer tramo</p>
+                    <p>Precio: --</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function setActiveTab(element) {
+            document.querySelectorAll('.nav-tabs a').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

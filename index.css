@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a2b3c;
+    color: #ffffff;
+}
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.header {
+    text-align: left;
+    padding: 10px 0;
+}
+.nav-tabs {
+    display: flex;
+    border-bottom: 2px solid #5c819a;
+}
+.nav-tabs a {
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+.nav-tabs .active {
+    background-color: #2e4053;
+    border-bottom: 2px solid #ffffff;
+}
+.section {
+    padding: 20px;
+    background-color: #278dc1;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.section h2 {
+    margin-top: 0;
+}
+.about-page {
+    display: flex;
+    align-items: center;
+}
+.image-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    margin-right: 20px;
+}
+.price-visualizer {
+    display: flex;
+    flex-direction: column;
+}
+.price-visualizer select {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.price-info {
+    display: flex;
+    justify-content: space-between;
+}
+.price-info div {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+.price-info div:first-child {
+    margin-left: 0;
+}
+.price-info div:last-child {
+    margin-right: 0;
+}
